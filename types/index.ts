@@ -22,6 +22,11 @@ export interface ProjectCarList {
   outro: PortableTextBlock[];
 }
 
+export type ImageWithText = {
+  photo: ImageAsset;
+  photoText: string;
+};
+
 export interface ProjectCar {
   _id: string;
   _type: "document";
@@ -39,8 +44,5 @@ export interface ProjectCar {
   projectStarted?: string;
   engine?: string;
   body: PortableTextBlock[];
-  photos: {
-    photo: ImageAsset;
-    photoText: string;
-  }[];
+  photos: ImageWithText[];
 }

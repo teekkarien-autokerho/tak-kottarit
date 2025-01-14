@@ -13,11 +13,11 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
     <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
   </div>
   <div class="container">
-    <NuxtLink 
+    <a 
       v-for="project in projects" 
       :key="project._id"
       class="card"
-      :to="`/nayttely/${project.slug.current}`">
+      :href="`/nayttely/${project.slug.current}`">
       <img 
         v-if="project.heroImage"
         class="card_img"
@@ -32,7 +32,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
           Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
         </p>
       </div>
-    </NuxtLink>  
+    </a>  
   </div>
   <div class="container">
     <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.outro" />

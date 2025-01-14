@@ -35,11 +35,9 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
     </div>
     <h2 v-if="project.photos.length">Kuvia projektista:</h2>
     <div v-if="project.photos.length" class="photo-gallery">
-      <div v-for="photo in project.photos" :key="photo.photo._id" class="photo-card">
-        <img :src="urlFor(photo.photo).height(500).url()" :alt="photo.photoText" class="photo"/>
-        <p>{{ photo.photoText }}</p>
-      </div>
+      <photoCard v-for="photo in project.photos" :key="photo.photo._id" :imageWithText="photo" />
     </div>
+    
   </section>
 </template>
 
@@ -85,16 +83,5 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-}
-
-.photo-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.photo {
-  border-radius: 8px;
-  width: 100%;
 }
 </style>
