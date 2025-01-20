@@ -8,14 +8,21 @@ export default defineNuxtConfig({
 */
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
+  app: {
+    head: {
+      meta: [
+        { name: 'robots', content: 'noindex' }
+      ]
+    }
+  },
   modules: [
     '@nuxtjs/sanity',
     [
       '@nuxtjs/google-fonts',
       {
         families: {
-          
           Roboto: [500, 700, 800],
           'Racing Sans One': [400, 700],
           download: true,
@@ -24,7 +31,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-
   sanity: {
     projectId: process.env.NUXT_SANITY_PROJECT_ID,
     dataset: process.env.NUXT_SANITY_DATASET,
@@ -36,13 +42,11 @@ export default defineNuxtConfig({
       stega: true,
     },
   },
-
   postcss: {
     plugins: {
       autoprefixer: {},
       'postcss-nested': {},
     },
   },
-
   compatibilityDate: '2024-12-17',
 })
