@@ -100,12 +100,13 @@ body {
 }
 
 .container {
-  margin: 72px auto;
+  margin: 32px 32px;
   color: #ced2d9;
 
   @media (min-width: 575px) {
     max-width: var(--max-width-1);
     padding: 0 var(--space-4);
+    margin: 32px auto;
   }
   @media (min-width: 768px) {
     max-width: var(--max-width-2);
