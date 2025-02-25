@@ -116,7 +116,7 @@ body {
 
 <style scoped>
 main {
-  margin-top: 45px;
+  margin-top: 82px;
   min-height: 1000px;
 }
 
@@ -149,9 +149,4 @@ main {
   }
 }
 
-@media (min-width: 575px) {
-  main {
-    margin-top: unset;
-  }
-}
 </style>

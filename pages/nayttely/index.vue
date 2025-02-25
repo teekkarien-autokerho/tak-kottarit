@@ -10,7 +10,9 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 <template>
   <div class="container">
     <h1 class="title">{{ projectCarList?.title }}</h1>
-    <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
+    <div class="intro">
+      <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
+    </div>
   </div>
   <div class="container">
     <a 
@@ -20,17 +22,19 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
       :href="`/nayttely/${project.slug.current}`">
       <img 
         v-if="project.heroImage"
-        class="card_img"
+        class="card-img"
         :src="urlFor(project.heroImage).width(500).height(300).url()"
         alt="Cover image"
       />
       <div>
-        <p class="card_info">{{ project.make }} {{ project.model }} {{ project.year }}</p>
-        <h2 class="card_title">{{ project.title }}</h2>
-        <p>{{ project.heroText }}</p>
-        <p v-if="project.projectStarted">
-          Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
-        </p>
+        <p class="card-info">{{ project.make }} {{ project.model }} {{ project.year }}</p>
+        <h2 class="card-title">{{ project.title }}</h2>
+        <div class="card-info">
+          <p>{{ project.heroText }}</p>
+          <p v-if="project.projectStarted">
+            Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
+          </p>
+      </div>
       </div>
     </a>  
   </div>
@@ -41,19 +45,42 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 
 <style scoped>
 .title {
-  font-size: var(--font-size-10);
-  font-family: var(--font-family-header);
   margin-bottom: 24px;
   color: white;
+  font-size: var(--font-size-7);
+  font-family: var(--font-family-header);
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-7);
+  }
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-10);
+  }
 }
+
+.intro {
+  font-size: var(--font-size-2);
+  margin: 4px 0;
+
+  @media (min-width: 575px) {
+    margin: 8px 0;
+    font-size: var(--font-size-3);
+  }
+}
+
 .card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 8px;
-  gap: 32px;
+  gap: 16px;
   border-radius: 16px;
   color: white;
   text-decoration: none;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 32px;
+  }
 
   &:hover {
     transform: scale(1.01);
@@ -63,17 +90,33 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   }
 
 }
-.card_img {
-  height: 300px;
-  
+
+.card-img {
+  width: auto;
   border-radius: 16px;
+
+
+  @media (min-width: 1024px) {
+    height: 300px;
+    width: auto;
+  }
 }
-.card_title {
-  font-size: var(--font-size-8);
-  margin: 0px;
+
+.card-title {
+  margin: 4px 0;
+  font-size: var(--font-size-5);
+
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-8);
+  }
 }
-.card_info {
+
+.card-info {
+  margin: 4px 0;
   font-size: var(--font-size-1);
-  margin-bottom: 8px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 8px;
+  }
 }
 </style>
