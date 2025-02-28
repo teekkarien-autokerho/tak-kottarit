@@ -1,4 +1,16 @@
-import type { PortableTextBlock, ImageAsset } from "@sanity/types";
+import type { PortableTextBlock, ImageAsset, FileAsset } from "@sanity/types";
+
+export type File = FileAsset & {
+  url?: string;
+  originalFilename?: string;
+}
+
+export type Topic = {
+  title: string;
+  image?: ImageAsset;
+  body: PortableTextBlock[];
+  files: File[];
+}
 
 export interface Page {
   _id: string;
@@ -9,9 +21,10 @@ export interface Page {
   heroText?: string;
   HeroFlipText?: string[];
   body: PortableTextBlock[];
+  topics: Topic[];
 }
 
-export interface FrontPage extends Page {  
+export interface FrontPage extends Omit<Page, "topics"> {  
   HeroFlipText?: string[]; 
 }
 

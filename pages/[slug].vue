@@ -3,7 +3,18 @@ import { type Page } from '../types'
 
 const route = useRoute()
 
-const query = groq`*[_type == "page" && slug.current == $slug][0]`
+const query = groq`*[_type == "page" && slug.current == $slug][0]{
+  ...,
+  topics[] {
+    ...,
+    files[] {
+      ...,
+      'url':asset->url,
+      'originalFilename': asset->originalFilename,
+    }
+  },
+}`
+
 const { data: page } = await useSanityQuery<Page>(query, {
   slug: route.params.slug,
 })
@@ -30,6 +41,7 @@ const { data: page } = await useSanityQuery<Page>(query, {
   <section v-if="page !==null" class="container">
     <SanityContent v-if="page.body" :blocks="page.body" />
   </section>
+  <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
 </template>
 
 

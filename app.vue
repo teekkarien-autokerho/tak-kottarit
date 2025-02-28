@@ -16,10 +16,10 @@ export default {
       <NuxtPage />
     </main>
     <footer class="footer">
-      <div class="footer_links">
-        <a class="footer__text" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
+      <div class="footer-links">
+        <a class="footer-text" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
       </div>
-      <p class="footer__text">
+      <p class="footer-copyright">
         Copyright Teekkarien Autokerho ry {{ currentYear }}
       </p>
     </footer>
@@ -76,7 +76,7 @@ export default {
   --magenta-100: #f9d7eb;
 
   --max-width-0: 320px;
-  --max-width-1: 768px;
+  --max-width-1: 600px;
   --max-width-2: 1024px;
 
   background-color: #111111;
@@ -101,7 +101,7 @@ body {
 
 .container {
   margin: 32px 32px;
-  color: #ced2d9;
+  color: #b7b7b8;
 
   @media (min-width: 575px) {
     max-width: var(--max-width-1);
@@ -116,7 +116,7 @@ body {
 
 <style scoped>
 main {
-  margin-top: 82px;
+  margin-top: 69px;
   min-height: 1000px;
 }
 
@@ -128,17 +128,18 @@ main {
   gap: 16px;
   padding: var(--space-5) var(--space-3);
   background-color: #000;
-
-  & .footer__text {
-    font-size: var(--font-size-1);
-    line-height: var(--line-height-1);
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    color:#ed1e24;
-  }
 }
-.footer_links {
+
+.footer-text {
+  font-size: var(--font-size-1);
+  line-height: var(--line-height-1);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color:#ed1e24;
+}
+
+.footer-links {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,4 +150,10 @@ main {
   }
 }
 
+.footer-copyright {
+  font-size: var(--font-size-0);
+  line-height: var(--line-height-1);
+  color: #b7b7b8;
+}
+  
 </style>

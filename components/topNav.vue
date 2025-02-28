@@ -2,6 +2,8 @@
 import { ref, onMounted, onUnmounted } from "vue";
 import { headerPages } from "#build/imports";
 
+const route = useRoute()
+
 const isMenuOpen = ref(false);
 const menuRef = ref<HTMLElement | null>(null);
 
@@ -46,8 +48,9 @@ onUnmounted(() => {
         <div class="header-spacer"></div>
         <div class="header-links">
           <a 
-            class="header-link" 
             v-for="page in headerPages" 
+            class="header-link"
+            :class="{ 'header-link-highlight': route.params.slug === page.slug }"
             :key="page.slug" 
             :href="page.href"
             >{{ page.title }}
@@ -59,8 +62,9 @@ onUnmounted(() => {
       </div>
       <nav v-if="isMenuOpen" ref="menuRef" class="mobile-menu">
         <a 
-          class="mobile-menu-item" 
           v-for="page in headerPages" 
+          class="mobile-menu-item" 
+          :class="{ 'header-link-highlight': route.params.slug === page.slug }"
           :key="page.slug" 
           :href="page.href"
           @click="isMenuOpen = false"
@@ -85,11 +89,11 @@ onUnmounted(() => {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 
   @media (min-width: 575px) {
-    padding: 12px 32px;
+    padding: 12px 24px;
   }
 
   @media (min-width: 1024px) {
-    padding: 18px 32px;
+    padding: 12px 24px;
   }
 }
 
@@ -97,12 +101,13 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   flex: 1;
-  gap: 24px;
+  gap: 18px;
   font-size: var(--font-size-2);
   text-decoration: none;
   color: #ed1e24;
 
   @media (min-width: 575px) {
+    gap: 24px;
     font-size: var(--font-size-3);
   }
 
@@ -112,11 +117,16 @@ onUnmounted(() => {
 }
 
 .header-name {
-  font-size: var(--font-size-5);
+  font-size: var(--font-size-4);
   font-family: var(--font-family-header);
   font-weight: 800;
   color: #ed1e24;
   text-decoration: none;
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-5);
+  }
+
   @media (min-width: 1124px) {
     font-size: var(--font-size-6);
   }
@@ -147,6 +157,12 @@ onUnmounted(() => {
 .header-link:hover {
   color: #f14b50;
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.header-link-highlight {
+  
+  text-decoration: underline;
 }
 
 .header-logo {

@@ -4,6 +4,7 @@ import { type ProjectCar } from '../../types'
 const route = useRoute()
 
 const query = groq`*[_type == "projectCar" && slug.current == $slug][0]`
+
 const { data: project } = await useSanityQuery<ProjectCar>(query, {
   slug: route.params.slug,
 })
@@ -15,14 +16,14 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
       <div class="hero-text-content">
         <h1 class="hero-title">{{ project.title }}</h1>
         <p class="hero-text">{{ project.heroText }}</p>
-        <p v-if="project.projectStarted">
+        <p class="hero-text" v-if="project.projectStarted">
           Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
         </p>
-        <p v-if="project.owner">Omistaja: {{ project.owner }}</p>
-        <p v-if="project.make">Merkki: {{ project.make }}</p>
-        <p v-if="project.model">Malli: {{ project.model }}</p>
-        <p v-if="project.year">Vuosi: {{ project.year }}</p>
-        <p v-if="project.engine">Moottori: {{ project.engine }}</p>  
+        <p class="hero-text" v-if="project.owner">Omistaja: {{ project.owner }}</p>
+        <p class="hero-text" v-if="project.make">Merkki: {{ project.make }}</p>
+        <p class="hero-text" v-if="project.model">Malli: {{ project.model }}</p>
+        <p class="hero-text" v-if="project.year">Vuosi: {{ project.year }}</p>
+        <p class="hero-text" v-if="project.engine">Moottori: {{ project.engine }}</p>  
       </div>
       <div class="hero-image" v-if="project.heroImage">
         <img :src="urlFor(project.heroImage).height(500).url()" :alt="project.title" />
@@ -51,14 +52,20 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 128px;
+  margin: 32px;
   color: white;
 }
 .hero-content {
   display: flex;
+  flex-direction: column-reverse;
   align-items: start;
   justify-content: space-between;
-  gap: 64px;
+  gap: 32px;
+
+  @media (min-width: 575px) {
+    flex-direction: row;
+    gap: 64px;
+  }
 }
 
 .hero-text-content {
@@ -67,16 +74,38 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
 
 .hero-image img {
   border-radius: 8px;
+  width: 100%;
+
+  @media (min-width: 575px) {
+    width: none;
+  }
 }
 
 .hero-title {
-  font-size: var(--font-size-10);
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  color: white;
+  font-size: var(--font-size-7);
+  font-family: var(--font-family-header);
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-7);
+  }
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-10);
+  }
 }
 
 .hero-text {
-  font-size: var(--font-size-6);
-  margin: 8px 0px;
+  font-size: var(--font-size-2);
+  margin: 4px 0;
+
+  @media (min-width: 575px) {
+    margin: 8px 0;
+    font-size: var(--font-size-4);
+  }
+  @media (min-width: 1024px) {
+    margin: 16px 0;
+  }
 }
 
 .photo-gallery {

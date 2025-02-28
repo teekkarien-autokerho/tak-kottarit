@@ -76,18 +76,19 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 }
 
 .hero-text {
-    font-size: var(--font-size-3);
-    margin: 4px 0;
+  font-size: var(--font-size-3);
+  margin: 4px 0;
 
-    @media (min-width: 575px) {
-      margin: 8px 0;
-      font-size: var(--font-size-5);
-    }
-    @media (min-width: 1024px) {
-      margin: 16px 0;
-      font-size: var(--font-size-7);
-    }
+  @media (min-width: 575px) {
+    margin: 8px 0;
+    font-size: var(--font-size-5);
+  }
+  @media (min-width: 1024px) {
+    margin: 16px 0;
+    font-size: var(--font-size-7);
+  }
 }
+
 .hero-flip-text {
   text-decoration: underline;
 }

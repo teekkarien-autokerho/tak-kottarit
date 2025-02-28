@@ -6,7 +6,6 @@
 
   const toggleModal = () => {
     isModalOpen.value = !isModalOpen.value;
-    console.log("clicked")
   };
 
 </script>

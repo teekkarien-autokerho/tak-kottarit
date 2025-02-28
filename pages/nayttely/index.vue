@@ -2,6 +2,7 @@
 import { type ProjectCarList, type ProjectCar } from '../../types'
 
 const { data: projectCarList } = await useSanityQuery<ProjectCarList>(groq`*[_type == "projectCarList"][0]`)
+
 const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "projectCar"]`)
 
 </script>
