@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { name: 'robots', content: 'noindex' }
-      ]
+      ],
+      title: "Teekkarien Autokerho",
     }
   },
   modules: [
