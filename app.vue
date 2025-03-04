@@ -93,16 +93,17 @@ body {
 }
 
 .container {
-  margin: 32px 32px;
+  margin: 16px 32px;
   color: #000000;
 
   @media (min-width: 575px) {
     max-width: var(--max-width-1);
-    padding: 0 var(--space-4);
-    margin: 32px auto;
+    padding: 0 32px;
+    margin: 24px auto;
   }
   @media (min-width: 768px) {
     max-width: var(--max-width-2);
+    margin: 32px auto;
   }
 }
 
@@ -126,7 +127,7 @@ body {
   margin-bottom: 12px;
 
   @media (min-width: 575px) {
-    font-size: var(--font-size-7);
+    font-size: var(--font-size-8);
   }
   @media (min-width: 1024px) {
     font-size: var(--font-size-10);
