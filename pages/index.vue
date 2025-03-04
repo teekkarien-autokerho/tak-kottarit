@@ -12,7 +12,8 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
   :style="{
       backgroundImage: frontPage.heroImage
         ? `url(${urlFor(frontPage.heroImage).width(2000).height(800).url()})`
-        : undefined
+      : undefined,
+      backgroundPosition: frontPage.heroPosition || 'center',
     }"
   >
   <div class="hero-container">

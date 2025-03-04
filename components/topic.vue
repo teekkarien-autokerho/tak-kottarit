@@ -24,7 +24,9 @@ const { topic } = defineProps<{ topic: Topic }>()
 <style scoped>
 
 .container {
-  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  margin: 32px 16px;
 
   @media (min-width: 575px) {
     margin: 48px auto;
@@ -40,9 +42,16 @@ const { topic } = defineProps<{ topic: Topic }>()
 
 .image {
   width: auto;
-  border-radius: 16px;
+  border-radius: 8px;
   margin-bottom: 16px;
 
+  @media (min-width: 575px) {
+    max-width: 600px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
+    border-radius: 16px;
+  }
 }
 
 .file-list {

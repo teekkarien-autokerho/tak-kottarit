@@ -18,6 +18,7 @@ export interface Page {
   _createdAt: string;
   title?: string;
   heroImage?: ImageAsset;
+  heroPosition?: "top" | "center" | "bottom";
   heroText?: string;
   HeroFlipText?: string[];
   body: PortableTextBlock[];

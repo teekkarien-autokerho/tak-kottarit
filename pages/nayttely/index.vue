@@ -16,6 +16,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
     </div>
   </div>
   <div class="container">
+    <h2 class="list-title">Projektit</h2>
     <a 
       v-for="project in projects" 
       :key="project._id"
@@ -27,9 +28,9 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
         :src="urlFor(project.heroImage).width(500).height(300).url()"
         alt="Cover image"
       />
-      <div>
+      <div class="card-text">
         <p class="card-info">{{ project.make }} {{ project.model }} {{ project.year }}</p>
-        <h2 class="card-title">{{ project.title }}</h2>
+        <h3 class="card-title">{{ project.title }}</h3>
         <div class="card-info">
           <p>{{ project.heroText }}</p>
           <p v-if="project.projectStarted">
@@ -46,16 +47,16 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 
 <style scoped>
 .title {
-  margin-bottom: 24px;
   color: white;
+  margin: 0;
   font-size: var(--font-size-7);
   font-family: var(--font-family-header);
 
   @media (min-width: 575px) {
-    font-size: var(--font-size-7);
+    font-size: var(--font-size-8);
   }
   @media (min-width: 1024px) {
-    font-size: var(--font-size-10);
+    font-size: var(--font-size-9);
   }
 }
 
@@ -69,37 +70,68 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   }
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-title {
+  font-size: var(--font-size-5);
+  margin: 0;
+  color: white;
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-6);
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  margin: 8px;
-  gap: 16px;
-  border-radius: 16px;
-  color: white;
+  padding: 8px 0;
+  gap: 8px;
+  border-radius: 8px;
   text-decoration: none;
+  color: #ced2d9;
+  
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     flex-direction: row;
-    gap: 32px;
+    padding: 0;
+    border-radius: 16px;
   }
 
   &:hover {
     transform: scale(1.01);
     filter: brightness(105%);
-    background-color: #151515;
+    box-shadow: 0 0 8px 2px #262626;
+    background-color: #262626;
     transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
   }
-
 }
 
 .card-img {
   width: auto;
-  border-radius: 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 
+  @media (min-width: 768px) {
+    width: 400px;
+    border-radius: 8px;
+  }
 
   @media (min-width: 1024px) {
     height: 300px;
     width: auto;
+    border-radius: 16px;
+  }
+}
+
+.card-text {
+  padding: 8px;
+  @media (min-width: 768px) {
+    padding: 16px;
   }
 }
 

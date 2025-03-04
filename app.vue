@@ -79,9 +79,10 @@ export default {
   --max-width-1: 600px;
   --max-width-2: 1024px;
 
-  background-color: #111111;
+  background-color: #232323;
   color: #ced2d9;
 }
+
 
 html {
   background-color: var(--white);

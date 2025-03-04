@@ -25,10 +25,9 @@ const { data: page } = await useSanityQuery<Page>(query, {
   v-if="page !==null"
   :class='page.heroImage ? "hero" : "hero short-hero"'
   :style="{
-      backgroundImage: page.heroImage
-        ? `url(${urlFor(page.heroImage).width(2000).height(800).url()})`
-        : undefined
-    }"
+    backgroundImage: page.heroImage ? `url(${urlFor(page.heroImage).width(2000).height(800).url()})` : undefined,
+    backgroundPosition: page.heroPosition || 'center',
+  }"
   >
   <div :class='page.heroImage ? "hero-container" : "short-hero-container"'>
     <h1 
@@ -50,18 +49,18 @@ const { data: page } = await useSanityQuery<Page>(query, {
   display: flex;
   flex-direction: column;
   justify-content: end;
-  min-height: 350px;
+  min-height: 250px;
   padding: 32px;
   background-size: cover;
   background-position: center;
   color: white;
 
   @media (min-width: 575px) {
-    min-height: 400px;
+    min-height: 300px;
     padding: 32px 64px;
   }
   @media (min-width: 1024px) {
-    min-height: 500px;
+    min-height: 400px;
     padding: 64px 128px;
   }
 }
