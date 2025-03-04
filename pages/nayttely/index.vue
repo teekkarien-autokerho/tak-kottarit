@@ -9,6 +9,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 
 
 <template>
+  <div class="content">
   <div class="container">
     <h1 class="title">{{ projectCarList?.title }}</h1>
     <div class="intro">
@@ -43,9 +44,17 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   <div class="container">
     <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.outro" />
   </div>
+</div>
 </template>
 
 <style scoped>
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #0e0d0d;   
+  color: #ced2d9;   
+}
+
 .title {
   color: white;
   margin: 0;
@@ -74,6 +83,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   display: flex;
   flex-direction: column;
   gap: 16px;
+  color: #ced2d9;
 }
 
 .list-title {
@@ -152,4 +162,5 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
     margin-bottom: 8px;
   }
 }
-</style>
+
+</style>  

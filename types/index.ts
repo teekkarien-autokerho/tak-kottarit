@@ -20,6 +20,7 @@ export interface Page {
   heroImage?: ImageAsset;
   heroPosition?: "top" | "center" | "bottom";
   heroText?: string;
+  heroTextColor: "black" | "white" | "red";
   HeroFlipText?: string[];
   body: PortableTextBlock[];
   topics: Topic[];

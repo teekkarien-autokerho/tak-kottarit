@@ -21,30 +21,48 @@ const { data: page } = await useSanityQuery<Page>(query, {
 </script>
 
 <template>
-  <section 
-  v-if="page !==null"
-  :class='page.heroImage ? "hero" : "hero short-hero"'
-  :style="{
-    backgroundImage: page.heroImage ? `url(${urlFor(page.heroImage).width(2000).height(800).url()})` : undefined,
-    backgroundPosition: page.heroPosition || 'center',
-  }"
-  >
-  <div :class='page.heroImage ? "hero-container" : "short-hero-container"'>
-    <h1 
-      :class='page.heroImage ? "hero-title" : "short-hero-title"'
-    >{{ page.title }}</h1>
-    <p class="hero-text">{{ page.heroText }}
-    </p>  
+  <div class="content">
+    <section 
+    v-if="page !==null"
+    class="hero"
+    :class="{
+      'short-hero': !page.heroImage,
+      'hero-text-red': page.heroTextColor === 'red',
+      'hero-text-white': page.heroTextColor === 'white',
+    }",
+    :style="{
+      backgroundImage: page.heroImage ? `
+        linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(233, 229, 229, 0.1) 70%, rgba(233, 229, 229, 1) 100%),
+        url(${urlFor(page.heroImage).width(2000).height(800).url()})
+      ` : undefined,
+      backgroundPosition: page.heroPosition || 'center',
+    }"
+    >
+    <div :class='page.heroImage ? "hero-container" : "short-hero-container"'>
+      <h1 
+        :class='page.heroImage ? "hero-title" : "short-hero-title"'
+      >{{ page.title }}</h1>
+      <p class="hero-text">{{ page.heroText }}
+      </p>  
+    </div>
+    </section>
+    <section v-if="page !==null" class="container">
+      <SanityContent v-if="page.body" :blocks="page.body" />
+    </section>
+    <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
   </div>
-  </section>
-  <section v-if="page !==null" class="container">
-    <SanityContent v-if="page.body" :blocks="page.body" />
-  </section>
-  <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
 </template>
 
 
 <style scoped>
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #e9e5e5;
+  color: #000000;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -53,7 +71,6 @@ const { data: page } = await useSanityQuery<Page>(query, {
   padding: 32px;
   background-size: cover;
   background-position: center;
-  color: white;
 
   @media (min-width: 575px) {
     min-height: 300px;
@@ -85,36 +102,9 @@ const { data: page } = await useSanityQuery<Page>(query, {
   align-items: center;
 }
 
-.hero-title {
-  font-size: var(--font-size-7);
-  font-family: var(--font-family-header);
-  margin-bottom: 24px;
-
-  @media (min-width: 575px) {
-    font-size: var(--font-size-7);
-  }
-  @media (min-width: 1024px) {
-    font-size: var(--font-size-10);
-  }
-}
-
 .short-hero-title {
     font-size: var(--font-size-7);
     margin-bottom: 18px;
+    z-index: 10;
 }
-
-.hero-text {
-    font-size: var(--font-size-3);
-    margin: 4px 0;
-
-    @media (min-width: 575px) {
-      margin: 8px 0;
-      font-size: var(--font-size-5);
-    }
-    @media (min-width: 1024px) {
-      margin: 16px 0;
-      font-size: var(--font-size-7);
-    }
-}
-
 </style>

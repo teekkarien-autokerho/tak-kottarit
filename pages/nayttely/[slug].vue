@@ -11,38 +11,46 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
 </script>
 
 <template>
-  <section v-if="project !== null" class="hero-container">
-    <div class="hero-content">
-      <div class="hero-text-content">
-        <h1 class="hero-title">{{ project.title }}</h1>
-        <p class="hero-text">{{ project.heroText }}</p>
-        <p class="hero-text" v-if="project.projectStarted">
-          Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
-        </p>
-        <p class="hero-text" v-if="project.owner">Omistaja: {{ project.owner }}</p>
-        <p class="hero-text" v-if="project.make">Merkki: {{ project.make }}</p>
-        <p class="hero-text" v-if="project.model">Malli: {{ project.model }}</p>
-        <p class="hero-text" v-if="project.year">Vuosi: {{ project.year }}</p>
-        <p class="hero-text" v-if="project.engine">Moottori: {{ project.engine }}</p>  
+  <div class="content">
+    <section v-if="project !== null" class="hero-container">
+      <div class="hero-content">
+        <div class="hero-text-content">
+          <h1 class="hero-title">{{ project.title }}</h1>
+          <p class="hero-text">{{ project.heroText }}</p>
+          <p class="hero-text" v-if="project.projectStarted">
+            Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
+          </p>
+          <p class="hero-text" v-if="project.owner">Omistaja: {{ project.owner }}</p>
+          <p class="hero-text" v-if="project.make">Merkki: {{ project.make }}</p>
+          <p class="hero-text" v-if="project.model">Malli: {{ project.model }}</p>
+          <p class="hero-text" v-if="project.year">Vuosi: {{ project.year }}</p>
+          <p class="hero-text" v-if="project.engine">Moottori: {{ project.engine }}</p>  
+        </div>
+        <div class="hero-image" v-if="project.heroImage">
+          <img :src="urlFor(project.heroImage).height(500).url()" :alt="project.title" />
+        </div>
       </div>
-      <div class="hero-image" v-if="project.heroImage">
-        <img :src="urlFor(project.heroImage).height(500).url()" :alt="project.title" />
+    </section>
+    <section v-if="project !== null" class="container">
+      <div v-if="project.body">
+        <SanityContent :blocks="project.body" />
       </div>
-    </div>
-  </section>
-  <section v-if="project !== null" class="container">
-    <div v-if="project.body">
-      <SanityContent :blocks="project.body" />
-    </div>
-    <h2 v-if="project.photos.length">Kuvia projektista:</h2>
-    <div v-if="project.photos.length" class="photo-gallery">
-      <photoCard v-for="photo in project.photos" :key="photo.photo._id" :imageWithText="photo" />
-    </div>
-    
-  </section>
+      <h2 v-if="project.photos.length">Kuvia projektista:</h2>
+      <div v-if="project.photos.length" class="photo-gallery">
+        <photoCard v-for="photo in project.photos" :key="photo.photo._id" :imageWithText="photo" />
+      </div>  
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.content {
+  display: flex;
+  flex-direction: column;
+  background-color: #0e0d0d;   
+  color: #ced2d9;   
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -69,7 +77,10 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
 }
 
 .hero-text-content {
-  flex: 1;
+  flex: 2;
+}
+.hero-image {
+  flex: 3;
 }
 
 .hero-image img {
@@ -99,7 +110,7 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
   font-size: var(--font-size-2);
   margin: 4px 0;
 
-  @media (min-width: 575px) {
+  @media (min-width: 768px) {
     margin: 8px 0;
     font-size: var(--font-size-4);
   }

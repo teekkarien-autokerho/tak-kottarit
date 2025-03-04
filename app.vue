@@ -10,7 +10,6 @@ export default {
 
 
 <template>
-  <div class="page">
     <TopNav />
     <main>
       <NuxtPage />
@@ -23,7 +22,6 @@ export default {
         Copyright Teekkarien Autokerho ry {{ currentYear }}
       </p>
     </footer>
-  </div>
 </template>
 
 <style>
@@ -79,8 +77,8 @@ export default {
   --max-width-1: 600px;
   --max-width-2: 1024px;
 
-  background-color: #232323;
-  color: #ced2d9;
+  background-color: #e9e5e5;
+  color: #000000;
 }
 
 
@@ -94,15 +92,9 @@ body {
   margin: 0;
 }
 
-.page {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .container {
   margin: 32px 32px;
-  color: #b7b7b8;
+  color: #000000;
 
   @media (min-width: 575px) {
     max-width: var(--max-width-1);
@@ -113,12 +105,46 @@ body {
     max-width: var(--max-width-2);
   }
 }
+
+.hero-text {
+    font-size: var(--font-size-3);
+    margin: 4px 0;
+
+    @media (min-width: 575px) {
+      margin: 8px 0;
+      font-size: var(--font-size-5);
+    }
+    @media (min-width: 1024px) {
+      margin: 16px 0;
+      font-size: var(--font-size-7);
+    }
+}
+
+.hero-title {
+  font-size: var(--font-size-7);
+  font-family: var(--font-family-header);
+  margin-bottom: 12px;
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-7);
+  }
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-10);
+  }
+}
+
+.hero-text-red {
+  color: #ed1e24;
+}
+.hero-text-white {
+  color: #ffffff;
+}
 </style>
 
 <style scoped>
 main {
-  margin-top: 69px;
-  min-height: 1000px;
+  padding-top: 69px;
+  background-color: #111111;
 }
 
 .footer {
@@ -128,7 +154,7 @@ main {
   justify-content: center;
   gap: 16px;
   padding: var(--space-5) var(--space-3);
-  background-color: #000;
+  background-color: #232323;
 }
 
 .footer-text {
@@ -156,5 +182,4 @@ main {
   line-height: var(--line-height-1);
   color: #b7b7b8;
 }
-  
 </style>
