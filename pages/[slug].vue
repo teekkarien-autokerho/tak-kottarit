@@ -45,10 +45,12 @@ console.log(page.value?.heroTextColor)
         <p class="hero-text">{{ page.heroText }}</p>  
       </div>
     </section>
-    <section v-if="page !==null" class="container">
-      <SanityContent v-if="page.body" :blocks="page.body" />
-    </section>
-    <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
+      <div>
+      <section v-if="page !==null" class="container">
+        <SanityContent v-if="page.body" :blocks="page.body" />
+      </section>
+      <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
+    </div>
   </div>
 </template>
 
