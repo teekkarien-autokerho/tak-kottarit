@@ -34,7 +34,7 @@ console.log(page.value?.heroTextColor)
         }",
         :style="{
           backgroundImage: page.heroImage ? `
-            linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(233, 229, 229, 0.1) 70%, rgba(233, 229, 229, 1) 100%),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(233, 255, 255, 0.2) 80%, rgba(0, 0, 0, 1) 100%),
             url(${urlFor(page.heroImage).width(2000).height(800).url()})
           ` : undefined,
           backgroundPosition: page.heroPosition || 'center',
@@ -42,7 +42,7 @@ console.log(page.value?.heroTextColor)
       ></div>
       <div class='hero-container'>
         <h1 class='hero-title'>{{ page.title }}</h1>
-        <p class="hero-text">{{ page.heroText }}</p>  
+        <p v-if="page?.heroText" class="hero-text">{{ page.heroText }}</p>  
       </div>
     </section>
       <div>
@@ -67,7 +67,7 @@ console.log(page.value?.heroTextColor)
 .hero {
   display: flex;
   flex-direction: column;;
-  min-height: 100px;
+  min-height: 250px;
   padding: 32px;
   background-size: cover;
   background-position: center;
@@ -87,14 +87,14 @@ console.log(page.value?.heroTextColor)
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 16px 32px 0;
+  margin: 24px 32px 0;
   gap: 16px;
   color: #000000;
 
   @media (min-width: 575px) {
     max-width: var(--max-width-1);
     padding: 0 32px;
-    margin: 16px auto 0;
+    margin: 32px auto 0;
   }
   @media (min-width: 768px) {
     max-width: var(--max-width-2);
