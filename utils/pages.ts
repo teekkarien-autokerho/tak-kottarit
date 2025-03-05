@@ -1,4 +1,4 @@
-type pageKey = 'liity' | 'toiminta' | 'talli' | 'kalusto' | 'yhteystiedot' | 'projektiautot' | 'historia' | 'tak75';
+type pageKey = 'liity' | 'toiminta' | 'talli' | 'kalusto' | 'yhteystiedot' | 'projektiautot' | 'historia' | 'tak75' | 'yhteistyo';
 
 export const pages: {
   [key in pageKey]: {
@@ -46,7 +46,12 @@ export const pages: {
     title: '75-vuotisjuhlat',
     href: '/tak-75',
     slug: 'tak75',
-  }
+  },
+  yhteistyo: {
+    title: 'Yhteistyö',
+    href: '/yhteistyo',
+    slug: 'yhteistyo',
+  },
 }
 
 export const headerPages: Partial<{
@@ -76,5 +81,6 @@ export const footerPages: Partial<{
   yhteystiedot: pages.yhteystiedot,
   projektiautot: pages.projektiautot,
   historia: pages.historia,
+  yhteistyo: pages.yhteistyo,
   tak75: pages.tak75,
 };
