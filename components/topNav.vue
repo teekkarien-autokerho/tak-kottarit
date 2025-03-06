@@ -50,10 +50,10 @@ onUnmounted(() => {
           <a 
             v-for="page in headerPages" 
             class="header-link"
-            :class="{ 'header-link-highlight': route.params.slug === page.slug }"
-            :key="page.slug" 
-            :href="page.href"
-            >{{ page.title }}
+            :class="{ 'header-link-highlight': route.params.slug === page?.slug }"
+            :key="page?.slug" 
+            :href="page?.href"
+            >{{ page?.title }}
           </a>
         </div>
         <button class="burger-menu-toggle" @click.stop="toggleMenu">
@@ -64,12 +64,12 @@ onUnmounted(() => {
         <a 
           v-for="page in headerPages" 
           class="mobile-menu-item" 
-          :class="{ 'header-link-highlight': route.params.slug === page.slug }"
-          :key="page.slug" 
-          :href="page.href"
+          :class="{ 'header-link-highlight': route.params.slug === page?.slug }"
+          :key="page?.slug" 
+          :href="page?.href"
           @click="isMenuOpen = false"
         >
-          {{ page.title }}
+          {{ page?.title }}
         </a>
       </nav>
     </header>

@@ -40,7 +40,7 @@ const { data: page } = await useSanityQuery<Page>(query, {
         }"
       ></div>
       <div class='hero-container'>
-        <h1 class='hero-title'>{{ page.title }}</h1>
+        <h1 class='hero-title'>{{ page?.title }}</h1>
         <p v-if="page?.heroText" class="hero-text">{{ page.heroText }}</p>  
       </div>
     </section>
