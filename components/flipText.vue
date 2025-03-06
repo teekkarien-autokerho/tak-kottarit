@@ -5,28 +5,25 @@ const { heroText, texts } = defineProps<{ heroText: string; texts: string[] }>()
 
 const flipText = ref<string | null>(null);
 const currentIndex = ref<number>(0);
-const typingDelay = 3000; // Time before backspacing starts
-const backspaceSpeed = 1000; // Backspacing animation duration
-const typingSpeed = 2000; // Typing speed duration
+const backspacing = ref<boolean>(false);
+const startDelay = 500;
+const typingDelay = 5000;
+const backspaceDelay = 3000;
 
 const shuffleTexts = async () => {
   currentIndex.value = Math.floor(Math.random() * texts.length);
 
-  while (true) {
-    flipText.value = null; // Force re-render
-    await nextTick();
-    flipText.value = texts[currentIndex.value];
+  await new Promise((resolve) => setTimeout(resolve, startDelay));
 
-    // Wait before backspacing
+  while (true) {
+    flipText.value = texts[currentIndex.value];
     await new Promise((resolve) => setTimeout(resolve, typingDelay));
 
-    // Add backspace effect by setting the text to an empty string
-    flipText.value = "";
+    backspacing.value = true
 
-    // Wait for backspace animation to complete
-    await new Promise((resolve) => setTimeout(resolve, backspaceSpeed));
+    await new Promise((resolve) => setTimeout(resolve, backspaceDelay));
 
-    // Move to the next word
+    backspacing.value = false
     currentIndex.value = (currentIndex.value + 1) % texts.length;
   }
 };
@@ -38,7 +35,16 @@ onMounted(shuffleTexts);
   <div>
     <span class="hero-container">
       <span class="hero-text">{{ heroText }}&nbsp;</span>
-      <span v-if="flipText !== null" key="animated-text" class="hero-flip-text">
+      <span
+        v-if="flipText !== null"
+        key="animated-text"
+        class="hero-flip-text"
+        :class="{
+          'backspacing': backspacing,
+          'typing': !backspacing
+        }"
+        :aria-empty="flipText === '' ? 'true' : 'false'"
+      >
         {{ flipText }}
       </span>
     </span>
@@ -48,44 +54,47 @@ onMounted(shuffleTexts);
 <style scoped>
 .hero-container {
   display: inline-flex;
+  flex-direction: column;
   align-items: baseline;
+
+  @media (min-width: 575px) {
+    flex-direction: row;
+  }
 }
 
 .hero-text {
+  white-space: nowrap;
   display: inline;
 }
 
 .hero-flip-text {
   overflow: hidden;
-  border-right: 0.15em solid white;
+  border-right: 0.1em solid white;
   white-space: nowrap;
   display: inline-block;
-  max-width: 0; /* Start hidden */
+  max-width: 0;
+}
+.typing {
   animation: 
-    typing 2s steps(20, end) forwards, 
+    typing 2s steps(40, end) forwards, 
     blink-caret 0.75s step-end infinite;
 }
+.backspacing {
+  animation: backspace 2s steps(40, end) forwards;
+}
 
-/* The typing effect */
 @keyframes typing {
   from { max-width: 0; }
   to { max-width: 100%; }
 }
 
-/* The backspacing effect */
 @keyframes backspace {
   from { max-width: 100%; }
   to { max-width: 0; }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: white; }
-}
-
-/* Apply backspacing animation when text is being removed */
-.hero-flip-text:empty {
-  animation: backspace 1s steps(20, end) forwards;
 }
 </style>
