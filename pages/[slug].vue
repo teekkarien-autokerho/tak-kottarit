@@ -48,7 +48,7 @@ const { data: page } = await useSanityQuery<Page>(query, {
       <section v-if="page !==null" class="container">
         <SanityContent v-if="page.body" :blocks="page.body" />
       </section>
-      <topic v-for="topic in page.topics" :key="topic.title" :topic="topic" />
+      <topic v-for="topic in page?.topics" :key="topic.title" :topic="topic" />
     </div>
   </div>
 </template>
