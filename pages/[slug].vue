@@ -85,7 +85,7 @@ const { data: page } = await useSanityQuery<Page>(query, {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 24px 32px 0;
+  margin: 24px 16px 0;
   gap: 16px;
   color: #000000;
 

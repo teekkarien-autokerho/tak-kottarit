@@ -38,6 +38,10 @@ const { topic } = defineProps<{ topic: Topic }>()
   margin-top: 32px;
   margin-bottom: 24px;
   font-size: 24px;
+
+  @media (min-width: 575px) {
+    font-size: 32px;
+  }
 }
 
 .image {

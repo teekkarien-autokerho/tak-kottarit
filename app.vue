@@ -98,7 +98,7 @@ body {
 }
 
 .container {
-  margin: 16px 32px;
+  margin: 16px 16px;
   color: #000000;
 
   @media (min-width: 575px) {

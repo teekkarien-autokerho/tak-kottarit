@@ -3,6 +3,7 @@ import { type FrontPage } from '../types'
 
 const query = groq`*[_type == "frontPage"][0]`
 const { data: frontPage } = await useSanityQuery<FrontPage>(query)
+
 </script>
 
 
@@ -25,13 +26,12 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
     >
       <div class="hero-container">
         <h1 class="hero-title">{{ frontPage.title }}</h1>
-        <p class="hero-text">{{ frontPage.heroText }}
-          <span 
-            v-if="frontPage.HeroFlipText !== undefined"
-            class="hero-flip-text"
-            >
-            {{ frontPage.HeroFlipText[Math.floor(Math.random() * frontPage.HeroFlipText.length)] }}
-          </span>
+        <p class="hero-text">
+          <flipText 
+            v-if="frontPage.HeroFlipText && frontPage.heroText"
+            :hero-text="frontPage.heroText"
+            :texts="frontPage.HeroFlipText"
+          />
         </p>
       </div>
     </section>
