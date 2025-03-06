@@ -18,6 +18,11 @@ export default {
       <div class="footer-links">
         <a class="footer-text" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
       </div>
+      <div class="footer-links">
+        <a class="footer-text" href="https://www.instagram.com/teekkarienautokerho/">
+          <img class="header__logo"  height="25px" src="/instagram_logo.svg" alt="Teekkarien Autokerho" />
+        </a>
+      </div>
       <p class="footer-copyright">
         Copyright Teekkarien Autokerho ry {{ currentYear }}
       </p>

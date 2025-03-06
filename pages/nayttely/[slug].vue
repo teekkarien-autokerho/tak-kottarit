@@ -12,6 +12,9 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
 
 <template>
   <div class="content">
+    <div v-if="project !== null" class="breadcrumbs">
+      <a class="breadcrumb" href="/nayttely">← takaisin listaan</a>
+    </div>
     <section v-if="project !== null" class="hero-container">
       <div class="hero-content">
         <div class="hero-text-content">
@@ -44,17 +47,40 @@ const { data: project } = await useSanityQuery<ProjectCar>(query, {
 </template>
 
 <style scoped>
+.breadcrumbs {
+  margin: 16px 16px 0;
+  
+  @media (min-width: 575px) {
+    margin: 32px 32px 0;
+  }
+  @media (min-width: 1300px) {
+    margin: 32px 64px 0;
+  }
+}
+
+.breadcrumb {
+  padding: 4px;
+  color:#ed1e24;
+  text-decoration: none;
+  font-size: 14px;
+
+  @media (min-width: 1300px) {
+    font-size: 16px;
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;
   background-color: #0e0d0d;   
-  color: #ced2d9;   
+  color: #ced2d9;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  color: #ced2d9;
 }
 .hero-container {
   display: flex;

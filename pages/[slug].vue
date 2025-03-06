@@ -19,7 +19,6 @@ const { data: page } = await useSanityQuery<Page>(query, {
   slug: route.params.slug,
 })
 
-console.log(page.value?.heroTextColor)
 </script>
 
 <template>
@@ -34,7 +33,7 @@ console.log(page.value?.heroTextColor)
         }",
         :style="{
           backgroundImage: page.heroImage ? `
-            linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(233, 255, 255, 0.2) 80%, rgba(0, 0, 0, 1) 100%),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) ),
             url(${urlFor(page.heroImage).width(2000).height(800).url()})
           ` : undefined,
           backgroundPosition: page.heroPosition || 'center',
@@ -70,7 +69,6 @@ console.log(page.value?.heroTextColor)
   min-height: 250px;
   padding: 32px;
   background-size: cover;
-  background-position: center;
 
   @media (min-width: 575px) {
     min-height: 300px;
