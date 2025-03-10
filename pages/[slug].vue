@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Page } from '../types'
+import { joinButtonContent } from '../utils/joinButtonContent'
 
 const route = useRoute()
 
@@ -18,12 +19,17 @@ const query = groq`*[_type == "page" && slug.current == $slug][0]{
 const { data: page } = await useSanityQuery<Page>(query, {
   slug: route.params.slug,
 })
+
 if (!page.value) {
   throw createError({
     statusCode: 404,
     statusMessage: 'Page Not Found'
   })
 }
+
+const buttonData = route.params.slug === pages.english.slug ? joinButtonContent.english : joinButtonContent.liity
+
+
 </script>
 
 <template>
@@ -49,11 +55,22 @@ if (!page.value) {
         <p v-if="page?.heroText" class="hero-text">{{ page.heroText }}</p>  
       </div>
     </section>
-      <div>
-      <section v-if="page !==null" class="container">
-        <SanityContent v-if="page.body" :blocks="page.body" />
-      </section>
-      <topic v-for="topic in page?.topics" :key="topic.title" :topic="topic" />
+      <div class="topics">
+        <section v-if="page !==null" class="container container-first">
+          <SanityContent v-if="page.body" :blocks="page.body" />
+        </section>
+        <div class="container" v-if="route.params.slug === pages.liity.slug">
+          <a 
+            :href="buttonData.url"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <button class="button">
+              {{ buttonData?.text }}
+            </button>
+          </a>
+        </div>
+        <topic v-for="topic in page?.topics" :key="topic.title" :topic="topic" />
     </div>
   </div>
 </template>
@@ -120,6 +137,16 @@ if (!page.value) {
       margin: 16px 0;
       font-size: var(--font-size-7);
     }
+}
+
+.container-first {
+  @media (min-width: 1024px) {
+    margin-bottom: 64px;
+  }
+}
+
+.topics {
+  margin-bottom: 64px;
 }
 
 </style>

@@ -29,18 +29,23 @@ const { topic } = defineProps<{ topic: Topic }>()
   margin: 32px 16px;
 
   @media (min-width: 575px) {
-    margin: 48px auto;
+    margin: 0 auto ;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
   }
  
 }
 
 .title {
-  margin-top: 32px;
-  margin-bottom: 24px;
+  margin: 24px 0;
   font-size: 24px;
 
   @media (min-width: 575px) {
     font-size: 32px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 42px;
   }
 }
 

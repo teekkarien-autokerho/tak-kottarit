@@ -97,6 +97,30 @@ body {
   margin: 0;
 }
 
+button {
+  padding: 8px;
+  border-radius: 4px;
+  border-width: 0;
+  background-color: #ed1e24;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: #e9e5e5;
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-4);
+
+  
+
+  @media (min-width: 575px) {
+    padding: 16px;
+    border-radius: 8px;
+    font-size: var(--font-size-5);
+  }
+}
+
+button:hover {
+    background-color: #c2161c;
+    cursor: pointer;
+  }
+
 .container {
   margin: 16px 16px;
   color: #000000;
