@@ -116,6 +116,8 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   color: #ced2d9;
 }
 
