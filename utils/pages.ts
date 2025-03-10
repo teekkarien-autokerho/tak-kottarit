@@ -15,7 +15,7 @@ export const pages: {
   english: {
     title: 'In English',
     href: "/en",
-    slug: "/en"
+    slug: "en"
   },
   toiminta: {
     title: 'Toiminta',
