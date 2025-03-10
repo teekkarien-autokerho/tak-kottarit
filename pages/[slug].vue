@@ -18,7 +18,12 @@ const query = groq`*[_type == "page" && slug.current == $slug][0]{
 const { data: page } = await useSanityQuery<Page>(query, {
   slug: route.params.slug,
 })
-
+if (!page.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
 </script>
 
 <template>

@@ -58,9 +58,9 @@ export const pages: {
     slug: 'ratapäivät'
   },
   aanitorvet: {
-    title: 'Äänitorvet',
-    href: '/äänitorvet',
-    slug: 'äänitorvet'
+    title: 'Äänitorvi',
+    href: '/äänitorvi',
+    slug: 'äänitorvi'
   }
 }
 

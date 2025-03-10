@@ -8,6 +8,13 @@ const query = groq`*[_type == "projectCar" && slug.current == $slug][0]`
 const { data: project } = await useSanityQuery<ProjectCar>(query, {
   slug: route.params.slug,
 })
+
+if (!project.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Page Not Found'
+  })
+}
 </script>
 
 <template>

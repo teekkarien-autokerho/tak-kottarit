@@ -27,7 +27,8 @@ export interface Page {
 }
 
 export interface FrontPage extends Omit<Page, "topics"> {  
-  HeroFlipText?: string[]; 
+  HeroFlipText?: string[];
+  picture?: ImageAsset
 }
 
 export interface ProjectCarList {

@@ -80,7 +80,9 @@ onMounted(shuffleTexts);
     blink-caret 0.75s step-end infinite;
 }
 .backspacing {
-  animation: backspace 2s steps(40, end) forwards;
+  animation: 
+    backspace 2s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {

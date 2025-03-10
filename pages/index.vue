@@ -38,6 +38,14 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
     <section v-if="frontPage !==null" class="container">
       <SanityContent v-if="frontPage.body" :blocks="frontPage.body" />
     </section>
+    <section v-if="frontPage !==null" class="container">
+      <img
+        v-if="frontPage.picture"
+        class="picture"
+        :src="urlFor(frontPage.picture).width(1000).url()"
+        alt="Cover image"
+      />
+    </section>
 </div>
 </template>
 
@@ -109,5 +117,19 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 
 .container {
   color: #ced2d9;
+}
+
+.picture {
+  width: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+
+  @media (min-width: 575px) {
+    max-width: 600px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 800px;
+    border-radius: 8px;
+  }
 }
 </style>
