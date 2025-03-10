@@ -14,9 +14,8 @@ export const pages: {
   },
   english: {
     title: 'In English',
-    href: "en",
+    href: "/en",
     slug: "/en"
-
   },
   toiminta: {
     title: 'Toiminta',
