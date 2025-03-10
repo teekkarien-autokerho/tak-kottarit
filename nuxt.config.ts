@@ -32,6 +32,11 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  nitro: {
+    prerender: {
+      ignore: ["/404"],
+    },
+  },
   sanity: {
     projectId: process.env.NUXT_SANITY_PROJECT_ID,
     dataset: process.env.NUXT_SANITY_DATASET,
