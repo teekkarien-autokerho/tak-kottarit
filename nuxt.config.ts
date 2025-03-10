@@ -20,6 +20,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/sanity',
+    /*
     [
       '@nuxtjs/google-fonts',
       {
@@ -31,6 +32,9 @@ export default defineNuxtConfig({
         },
       },
     ],
+    */
+    '@nuxt/fonts',
+    
   ],
   nitro: {
     prerender: {

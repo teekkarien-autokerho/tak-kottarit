@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.11.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/sanity": "1.13.3",
     "@portabletext/vue": "^1.0.11",
