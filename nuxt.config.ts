@@ -19,13 +19,14 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'robots', content: 'noindex' }, // remove when released
-        { hid: 'description', name: 'description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.' },
-        { hid: 'og-title', property: 'og:title', content: 'Teekkarien Autokerho'},
-        { hid: 'og-type', property: 'og:type', content: 'website' },
-        { hid: 'twitter-card', property: 'twitter:card', content: '/TAK-og-image.jpg' },
-        { hid: 'og-image', property: 'og:image', content: '/TAK-og-image.jpg'},
-        { hid: 'og-description', property: 'og:description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.'},
-       
+        { key: 'description', name: 'description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.' },
+        { key: 'og-title', property: 'og:title', content: 'Teekkarien Autokerho'},
+        { key: 'og-type', property: 'og:type', content: 'website' },
+        { key: 'og-image', property: 'og:image', content: '/TAK_og_image.jpg'},
+        { key: 'og-description', property: 'og:description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.'},
+        { key: 'og-locale', property: 'fi_FI' },
+        // { key: 'og-url', property: 'teekkarienautokerho.fi/' }, Apply when released
+        { key: 'og-logo', property: '/tak_logo.svg'}
 
       ],
     }
