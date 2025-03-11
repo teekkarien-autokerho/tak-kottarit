@@ -12,27 +12,26 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
   app: {
     head: {
-      meta: [
-        { name: 'robots', content: 'noindex' }
-      ],
       title: "Teekkarien Autokerho",
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'robots', content: 'noindex' }, // remove when released
+        { hid: 'description', name: 'description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.' },
+        { hid: 'og-title', property: 'og:title', content: 'Teekkarien Autokerho'},
+        { hid: 'og-type', property: 'og:type', content: 'website' },
+        { hid: 'twitter-card', property: 'twitter:card', content: '/TAK-og-image.jpg' },
+        { hid: 'og-image', property: 'og:image', content: '/TAK-og-image.jpg'},
+        { hid: 'og-description', property: 'og:description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.'},
+       
+
+      ],
     }
   },
   modules: [
     '@nuxtjs/sanity',
-    /*
-    [
-      '@nuxtjs/google-fonts',
-      {
-        families: {
-          Roboto: [500, 700, 800],
-          'Racing Sans One': [400, 700],
-          download: true,
-          inject: true,
-        },
-      },
-    ],
-    */
     '@nuxt/fonts',
     
   ],

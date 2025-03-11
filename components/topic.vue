@@ -13,6 +13,7 @@ const { topic } = defineProps<{ topic: Topic }>()
         class="image"
         :src="urlFor(topic.image).width(800).url()"
         alt="Cover image"
+        
       />
       <CustomSanityContent v-if="topic.body" :blocks="topic.body" />
     <div v-if="topic.files && topic.files.length" class="file-list">
