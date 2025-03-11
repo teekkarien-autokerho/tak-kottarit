@@ -24,9 +24,9 @@ export default defineNuxtConfig({
         { key: 'og-type', property: 'og:type', content: 'website' },
         { key: 'og-image', property: 'og:image', content: '/TAK_og_image.jpg'},
         { key: 'og-description', property: 'og:description', content: 'Autokerholla rakennetaan ja korjataan jäsenistön autoja, tehdään excursioita, saunotaan millä-milloin-missäkin, järjestetään tapahtumia ja osallistutaan opiskelijarientoihin.'},
-        { key: 'og-locale', property: 'fi_FI' },
-        // { key: 'og-url', property: 'teekkarienautokerho.fi/' }, Apply when released
-        { key: 'og-logo', property: '/tak_logo.svg'}
+        { key: 'og-locale', property: 'og:locale', content: 'fi_FI' },
+        // { key: 'og-url', property: 'og:url', content: 'https://teekkarienautokerho.fi/' }, Apply when released
+        { key: 'og-logo', property: 'og:logo', content:'/tak_logo.svg'}
 
       ],
     }
