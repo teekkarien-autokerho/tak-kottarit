@@ -27,8 +27,9 @@ if (!page.value) {
   })
 }
 
-const buttonData = route.params.slug === pages.english.slug ? joinButtonContent.english : joinButtonContent.liity
+console.log("slug", route.params.slug, "params", joinButtonContent)
 
+const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liity" | "english">]
 
 </script>
 
@@ -59,7 +60,7 @@ const buttonData = route.params.slug === pages.english.slug ? joinButtonContent.
         <section v-if="page !==null" class="container container-first">
           <SanityContent v-if="page.body" :blocks="page.body" />
         </section>
-        <div class="container" v-if="route.params.slug === pages.liity.slug">
+        <div class="container" v-if="buttonData">
           <a 
             :href="buttonData.url"
             target="_blank" 

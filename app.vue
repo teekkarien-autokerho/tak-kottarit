@@ -98,7 +98,7 @@ body {
 }
 
 button {
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 4px;
   border-width: 0;
   background-color: #ed1e24;
@@ -107,10 +107,8 @@ button {
   font-family: var(--font-family-header);
   font-size: var(--font-size-4);
 
-  
-
   @media (min-width: 575px) {
-    padding: 16px;
+    padding: 12px 24px;
     border-radius: 8px;
     font-size: var(--font-size-5);
   }
