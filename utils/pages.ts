@@ -1,4 +1,4 @@
-export type PageKey = 'liity' | 'en' | 'toiminta' | 'talli' | 'kalusto' | 'yhteystiedot' | 'projektiautot' | 'historia' | 'tak75' | 'yhteistyo' | 'ratapaivat' | 'aanitorvet';
+export type PageKey = 'liity' | 'en' | 'toiminta' | 'talli' | 'kalusto' | 'yhteystiedot' | 'projektiautot' | 'historia' | 'tak75' | 'yhteistyo' | 'ratapaivat' | 'aanitorvet' | 'hallinto';
 
 export const pages: {
   [key in PageKey]: {
@@ -57,6 +57,11 @@ export const pages: {
     href: '/yhteistyo',
     slug: 'yhteistyo',
   },
+  hallinto: {
+    title: 'Hallinto',
+    href: '/hallinto',
+    slug: 'hallinto'
+  },
   ratapaivat: {
     title: 'Ratapäivät',
     href: '/ratapäivät',
@@ -97,6 +102,7 @@ export const footerPages: Partial<{
   talli: pages.talli,
   kalusto: pages.kalusto,
   yhteystiedot: pages.yhteystiedot,
+  hallinto: pages.hallinto,
   historia: pages.historia,
   projektiautot: pages.projektiautot,
   yhteistyo: pages.yhteistyo,
