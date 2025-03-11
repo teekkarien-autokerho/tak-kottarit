@@ -27,19 +27,12 @@ if (!page.value) {
   })
 }
 
-useHead({
+useSeoMeta({
   title: page.value.title ? `${page.value.title} - Teekkarien Autokerho` : undefined,
-  meta: [
-    {
-      name: 'og:title', content: page.value.title ? `${page.value.title} - Teekkarien Autokerho` : undefined
-    }, {
-      name: 'og:image', content: page.value.heroImage ? `${urlFor(page.value.heroImage).width(1200).url()}`: undefined
-    },
-    { 
-      name: 'og:locale', content: route.params.slug == pages.en.slug ? "en_US" : "fi_FI",
-    }
-    
-  ],
+  ogTitle: page.value.title ? `${page.value.title} - Teekkarien Autokerho` : undefined,
+  ogImage: page.value.heroImage ? `${urlFor(page.value.heroImage).width(1200).url()}`: undefined,
+  ogLocale: route.params.slug == pages.en.slug ? "en_US" : "fi_FI",
+  twitterCard: 'summary_large_image',
 })
 
 const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liity" | "english">]
