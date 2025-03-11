@@ -43,7 +43,7 @@ if (!project.value) {
     </section>
     <section v-if="project !== null" class="container">
       <div v-if="project.body">
-        <SanityContent :blocks="project.body" />
+        <CustomSanityContent :blocks="project.body" />
       </div>
       <h2 v-if="project.photos.length">Kuvia projektista:</h2>
       <div v-if="project.photos.length" class="photo-gallery">

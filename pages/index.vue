@@ -36,7 +36,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
       </div>
     </section>
     <section v-if="frontPage !==null" class="container">
-      <SanityContent v-if="frontPage.body" :blocks="frontPage.body" />
+      <CustomSanityContent v-if="frontPage.body" :blocks="frontPage.body" />
     </section>
     <section v-if="frontPage !==null" class="container">
       <img

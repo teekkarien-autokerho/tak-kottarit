@@ -58,7 +58,7 @@ const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liit
     </section>
       <div class="topics">
         <section v-if="page !==null" class="container container-first">
-          <SanityContent v-if="page.body" :blocks="page.body" />
+          <CustomSanityContent v-if="page.body" :blocks="page.body" />
         </section>
         <div class="container" v-if="buttonData">
           <a 

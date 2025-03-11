@@ -13,7 +13,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   <div class="container">
     <h1 class="title">{{ projectCarList?.title }}</h1>
     <div class="intro">
-      <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
+      <CustomSanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
     </div>
   </div>
   <div class="container">
@@ -42,7 +42,7 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
     </a>  
   </div>
   <div class="container">
-    <SanityContent v-if="projectCarList?.intro" :blocks="projectCarList.outro" />
+    <CustomSanityContent v-if="projectCarList?.intro" :blocks="projectCarList.outro" />
   </div>
 </div>
 </template>

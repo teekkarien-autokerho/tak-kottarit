@@ -7,19 +7,20 @@ const { topic } = defineProps<{ topic: Topic }>()
 
 <template>
   <section class="container">
-    <h3 class="title">{{ topic.title }}</h3>
+    <h2 class="title">{{ topic.title }}</h2>
     <img 
         v-if="topic.image"
         class="image"
         :src="urlFor(topic.image).width(800).url()"
         alt="Cover image"
       />
-    <SanityContent v-if="topic.body" :blocks="topic.body" />
+      <CustomSanityContent v-if="topic.body" :blocks="topic.body" />
     <div v-if="topic.files && topic.files.length" class="file-list">
       <file v-for="file in topic.files" :key="file._key" :file="file" />
     </div>
   </section>
 </template>
+
 
 <style scoped>
 
