@@ -47,7 +47,7 @@ if (!project.value) {
       </div>
       <h2 v-if="project.photos.length">Kuvia projektista:</h2>
       <div v-if="project.photos.length" class="photo-gallery">
-        <photoCard v-for="photo in project.photos" :key="photo.photo._id" :imageWithText="photo" />
+        <photoCard v-for="photo in project.photos" :key='photo.photo?._id' :imageWithText="photo" />
       </div>  
     </section>
   </div>

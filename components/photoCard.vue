@@ -12,7 +12,8 @@
 
 <template>
   <div class="photo-card">
-    <img 
+    <img
+      v-if="imageWithText.photo"
       :src="urlFor(imageWithText.photo).height(400).url()"
       class="photo"
       @click="toggleModal"
