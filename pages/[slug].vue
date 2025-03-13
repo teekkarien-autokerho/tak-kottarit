@@ -52,7 +52,7 @@ const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liit
         :style="{
           backgroundImage: page.heroImage ? `
             linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) ),
-            url(${urlFor(page.heroImage).width(2000).height(800).url()})
+            url(${urlFor(page.heroImage).height(800).url()})
           ` : undefined,
           backgroundPosition: page.heroPosition || 'center',
         }"

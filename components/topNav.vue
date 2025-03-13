@@ -42,7 +42,7 @@ onUnmounted(() => {
   <header class="header">
       <div class="header-content">
         <a class="header-link" href="/">
-          <img class="header__logo"  height="40px" src="/tak_logo.svg" alt="Teekkarien Autokerho" />
+          <img class="header-logo" height="40" src="/tak_logo.svg" alt="Teekkarien Autokerho" />
         </a>
         <a class="header-name" href="/">Teekkarien Autokerho</a>
         <div class="header-spacer"></div>
@@ -166,11 +166,8 @@ onUnmounted(() => {
 }
 
 .header-logo {
-  height: 48px;
-
-  @media (min-width: 575px) {
-    height: 56px;
-  }
+  padding: 4px;
+  height: 40px;
 }
 
 .burger-menu-toggle {

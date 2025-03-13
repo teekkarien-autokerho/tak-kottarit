@@ -20,7 +20,7 @@ export default {
       </div>
       <div class="footer-links">
         <a class="footer-text" href="https://www.instagram.com/teekkarienautokerho/">
-          <img class="header__logo"  height="25px" src="/instagram_logo.svg" alt="Teekkarien Autokerho" />
+          <img class="header-logo"  height="25" src="/instagram_logo.svg" alt="Teekkarien Autokerho" />
         </a>
       </div>
       <p class="footer-copyright">
