@@ -202,6 +202,7 @@ main {
 
   @media (min-width: 575px) {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 

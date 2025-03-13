@@ -14,7 +14,7 @@
   <div class="photo-card">
     <img
       v-if="imageWithText.photo"
-      :src="urlFor(imageWithText.photo).height(400).url()"
+      :src="urlFor(imageWithText.photo).maxHeight(1000).url()"
       class="photo"
       @click="toggleModal"
     />
@@ -40,6 +40,8 @@
 .photo {
   border-radius: 8px;
   width: 100%;
+  max-height: 500px;
+  object-fit: cover;
   cursor: pointer;
 }
 
@@ -63,7 +65,6 @@
   padding: 64px;
   max-width: 90%;
   max-height: 90%;
-  padding: 16px;
 }
 
 .modal-content img {

@@ -37,7 +37,7 @@ if (!project.value) {
           <p class="hero-text" v-if="project.engine">Moottori: {{ project.engine }}</p>  
         </div>
         <div class="hero-image" v-if="project.heroImage">
-          <img :src="urlFor(project.heroImage).height(500).url()" :alt="project.title" />
+          <img :src="urlFor(project.heroImage).height(1000).url()" :alt="project.title" />
         </div>
       </div>
     </section>
@@ -117,10 +117,13 @@ if (!project.value) {
 }
 
 .hero-image img {
-  border-radius: 8px;
+  border-radius: 4px;
   width: 100%;
+  max-height: 500px;
+  object-fit: cover;
 
   @media (min-width: 575px) {
+    border-radius: 8px;
     width: none;
   }
 }
