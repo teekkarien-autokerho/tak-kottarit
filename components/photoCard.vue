@@ -22,7 +22,7 @@
     <div v-if="isModalOpen" class="modal" @click="toggleModal">
       <div class="modal-content" @click.stop>
         <button class="close-button" @click="toggleModal">×</button>
-        <img :src="urlFor(imageWithText.photo).url()" />
+        <img class="photo-large" :src="urlFor(imageWithText.photo).url()" />
         <p>{{ imageWithText.photoText }}</p>
       </div>
     </div>
@@ -62,15 +62,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 64px;
+  padding: 32px;
   max-width: 90%;
   max-height: 90%;
 }
 
 .modal-content img {
   width: auto;
-  min-height: 500px;
   max-height: 80vh;
+  max-width: 80vw;
   object-fit: contain;
   border-radius: 8px;
 }
