@@ -107,11 +107,16 @@ onUnmounted(() => {
   color: #ed1e24;
 
   @media (min-width: 575px) {
-    gap: 24px;
-    font-size: var(--font-size-3);
+    gap: 16px;
+    font-size: var(--font-size-2);
   }
 
   @media (min-width: 1024px) {
+    gap: 18px;
+    font-size: var(--font-size-3);
+  }
+  @media (min-width: 1300px) {
+    gap: 24px;
     font-size: var(--font-size-4);
   }
 }
@@ -144,7 +149,7 @@ onUnmounted(() => {
     display: flex;
   }
   @media (min-width: 1024px) {
-    gap: 24px;
+    gap: 18px;
   }
 }
 
@@ -152,6 +157,7 @@ onUnmounted(() => {
   font-weight: 500;
   color: #ed1e24;
   text-decoration: none;
+  text-wrap: nowrap; 
 }
 
 .header-link:hover {
@@ -161,7 +167,6 @@ onUnmounted(() => {
 }
 
 .header-link-highlight {
-  
   text-decoration: underline;
 }
 
