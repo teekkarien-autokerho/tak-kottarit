@@ -16,7 +16,7 @@ if (!project.value) {
   })
 }
 
-const description = project.value.body ? portableTextToPlainText(project.value.body) : undefined
+const description = project.value.body ? [portableTextToPlainText(project.value.body).slice(0, 200), "..."].join("") : undefined
 
 useSeoMeta({
   title: project.value.title ? `${project.value.title} projekti - Teekkarien Autokerho` : undefined,
