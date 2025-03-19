@@ -10,6 +10,10 @@ export default defineNuxtConfig({
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  site: {
+    url: 'https://teekkarienautokerho.fi',
+    name: 'Teekkarien Autokerho'
+  },
   app: {
     head: {
       title: "Teekkarien Autokerho",
@@ -26,15 +30,10 @@ export default defineNuxtConfig({
         { key: 'og-locale', property: 'og:locale', content: 'fi_FI' },
         { key: 'og-url', property: 'og:url', content: 'https://teekkarienautokerho.fi/' },
         { key: 'og-logo', property: 'og:logo', content:'/tak_logo.svg'}
-
       ],
     }
   },
-  modules: [
-    '@nuxtjs/sanity',
-    '@nuxt/fonts',
-    
-  ],
+  modules: ['@nuxtjs/sanity', '@nuxt/fonts', '@nuxtjs/sitemap'],
   nitro: {
     prerender: {
       ignore: ["/404"],
