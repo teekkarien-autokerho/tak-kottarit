@@ -77,14 +77,15 @@
 
 .close-button {
   position: absolute;
-  top: -20px;
-  right: -14px;
+  top: 0px;
+  right: 0px;
   padding: 8px;
   background: none;
   border: none;
   font-size: 32px;
   font-weight: bold;
   color: var(--white-text);  cursor: pointer;
+  box-shadow: none;
 }
 
 .close-button:hover {
