@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { type ProjectCarList, type ProjectCar } from '../../types'
+import { type ProjectCarListPage, type ProjectCar } from '../../types'
 
-const { data: projectCarList } = await useSanityQuery<ProjectCarList>(groq`*[_type == "projectCarList"][0]`)
+const { data: projectCarListPage } = await useSanityQuery<ProjectCarListPage>(groq`*[_type == "projectCarList"][0]`)
 
-const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "projectCar"]`)
+const { data: projectsCars } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "projectCar"] | order(dateTime(projectStarted + 'T00:00:00Z') desc)`)
 
 </script>
 
@@ -11,38 +11,38 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 <template>
   <div class="content">
   <div class="container">
-    <h1 class="title">{{ projectCarList?.title }}</h1>
+    <h1 class="title">{{ projectCarListPage?.title }}</h1>
     <div class="intro">
-      <CustomSanityContent v-if="projectCarList?.intro" :blocks="projectCarList.intro" />
+      <CustomSanityContent v-if="projectCarListPage?.intro" :blocks="projectCarListPage.intro" />
     </div>
   </div>
   <div class="container">
     <h2 class="list-title">Projektit</h2>
     <a 
-      v-for="project in projects" 
-      :key="project._id"
+      v-for="projectsCar in projectsCars" 
+      :key="projectsCar._id"
       class="card"
-      :href="`/nayttely/${project.slug.current}`">
+      :href="`/nayttely/${projectsCar.slug.current}`">
       <img 
-        v-if="project.heroImage"
+        v-if="projectsCar.heroImage"
         class="card-img"
-        :src="urlFor(project.heroImage).width(500).height(300).url()"
+        :src="urlFor(projectsCar.heroImage).width(500).height(300).url()"
         alt="Cover image"
       />
       <div class="card-text">
-        <p class="card-info">{{ project.make }} {{ project.model }} {{ project.year }}</p>
-        <h3 class="card-title">{{ project.title }}</h3>
+        <p class="card-info">{{ projectsCar.make }} {{ projectsCar.model }} {{ projectsCar.year }}</p>
+        <h3 class="card-title">{{ projectsCar.title }}</h3>
         <div class="card-info">
-          <p>{{ project.heroText }}</p>
-          <p v-if="project.projectStarted">
-            Projekti aloitettu: {{ new Date(project.projectStarted).toLocaleDateString('fi-FI') }}
+          <p>{{ projectsCar.heroText }}</p>
+          <p v-if="projectsCar.projectStarted">
+            Projekti aloitettu: {{ new Date(projectsCar.projectStarted).toLocaleDateString('fi-FI') }}
           </p>
       </div>
       </div>
     </a>  
   </div>
   <div class="container">
-    <CustomSanityContent v-if="projectCarList?.intro" :blocks="projectCarList.outro" />
+    <CustomSanityContent v-if="projectCarListPage?.intro" :blocks="projectCarListPage.outro" />
   </div>
 </div>
 </template>
