@@ -31,7 +31,7 @@ export interface FrontPage extends Omit<Page, "topics"> {
   picture?: ImageAsset
 }
 
-export interface ProjectCarList {
+export interface ProjectCarListPage {
   title?: string;
   heroText?: string;
   intro: PortableTextBlock[];

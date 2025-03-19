@@ -17,7 +17,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
     }"
     :style="{
       backgroundImage: frontPage.heroImage ? `
-        url(${urlFor(frontPage.heroImage).height(800).url()}),
+        url(${urlFor(frontPage.heroImage).height(3200).url()}),
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) )
       ` : undefined,
         backgroundPosition: frontPage.heroPosition || 'center',
