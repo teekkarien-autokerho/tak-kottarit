@@ -1,10 +1,3 @@
-<script setup lang="ts">
-definePageMeta({
-  middleware: 'varauskalenteri'
-})
-
-</script>
-
 <template>
   <div class="content">
     <div class="container">
