@@ -16,12 +16,14 @@ if (!project.value) {
   })
 }
 
+const description = project.value.body ? portableTextToPlainText(project.value.body) : undefined
 
 useSeoMeta({
   title: project.value.title ? `${project.value.title} projekti - Teekkarien Autokerho` : undefined,
   ogTitle: project.value.title ? `${project.value.title} projekti - Teekkarien Autokerho` : undefined,
+  ogDescription: description ?? project.value.heroText,
   ogImage: project.value.heroImage ? `${urlFor(project.value.heroImage).width(1200).url()}`: undefined,
-  ogLocale: route.params.slug == pages.en.slug ? "en_US" : "fi_FI",
+  ogLocale: "fi_FI",
   twitterCard: 'summary_large_image',
 })
 </script>

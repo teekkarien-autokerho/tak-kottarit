@@ -16,9 +16,6 @@ defineProps({
 </template>
 
 
-
-
-
 <style scoped>
 
 :deep(h2) {
