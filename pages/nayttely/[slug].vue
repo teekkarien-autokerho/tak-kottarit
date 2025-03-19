@@ -67,7 +67,7 @@ if (!project.value) {
 
 .breadcrumb {
   padding: 4px;
-  color:#ed1e24;
+  color: var(--primary-red);
   text-decoration: none;
   font-size: 14px;
 

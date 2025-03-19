@@ -104,7 +104,7 @@ onUnmounted(() => {
   gap: 18px;
   font-size: var(--font-size-2);
   text-decoration: none;
-  color: #ed1e24;
+  color: var(--primary-red);
 
   @media (min-width: 575px) {
     gap: 16px;
@@ -125,7 +125,7 @@ onUnmounted(() => {
   font-size: var(--font-size-5);
   font-family: var(--font-family-header);
   font-weight: 800;
-  color: #ed1e24;
+  color: var(--primary-red);
   text-decoration: none;
 
   @media (min-width: 575px) {
@@ -155,7 +155,7 @@ onUnmounted(() => {
 
 .header-link {
   font-weight: 500;
-  color: #ed1e24;
+  color: var(--primary-red);
   text-decoration: none;
   text-wrap: nowrap; 
 }
@@ -169,7 +169,7 @@ onUnmounted(() => {
 }
 
 .header-link:hover {
-  color: #f14b50;
+  color: var(--light-red);
   cursor: pointer;
   text-decoration: underline;
 }
@@ -188,7 +188,7 @@ onUnmounted(() => {
   font-size: 24px;
   background: none;
   border: none;
-  color: #ed1e24;
+  color: var(--primary-red);
   cursor: pointer;
   box-shadow: none;
 
@@ -208,14 +208,14 @@ onUnmounted(() => {
 }
 
 .mobile-menu-item {
-  color: #ed1e24;
+  color: var(--primary-red);
   text-decoration: none;
   font-size: var(--font-size-3);
   padding: 8px 10px;
 }
 
 .mobile-menu-item:hover {
-  color: #f14b50;
+  color: var(--light-red);
   cursor: pointer;
 }
 </style>

@@ -25,13 +25,11 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
     >
       <div class="hero-container">
         <h1 class="hero-title">{{ frontPage.title }}</h1>
-        <p class="hero-text">
-          <flipText 
-            v-if="frontPage.HeroFlipText && frontPage.heroText"
-            :hero-text="frontPage.heroText"
-            :texts="frontPage.HeroFlipText"
-          />
-        </p>
+        <flipText 
+          v-if="frontPage.HeroFlipText && frontPage.heroText"
+          :hero-text="frontPage.heroText"
+          :texts="frontPage.HeroFlipText"
+        />
       </div>
     </section>
     <section v-if="frontPage !==null" class="container">
@@ -54,7 +52,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--grey-background);
+  background-color: var(--black-background);
   color: var(--white-text);
 }
 
@@ -84,34 +82,20 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 }
 
 .hero-title {
-  font-size: var(--font-size-7);
+  font-size: var(--font-size-6);
   font-family: var(--font-family-header);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
-  @media (min-width: 575px) {
+  @media (min-width: 470px) {
     font-size: var(--font-size-7);
   }
+  @media (min-width: 768px) {
+    font-size: var(--font-size-8);
+  }
   @media (min-width: 1024px) {
+    margin-bottom: 16px;
     font-size: var(--font-size-10);
   }
-}
-
-.hero-text {
-  font-size: var(--font-size-3);
-  margin: 4px 0;
-
-  @media (min-width: 575px) {
-    margin: 8px 0;
-    font-size: var(--font-size-5);
-  }
-  @media (min-width: 1024px) {
-    margin: 16px 0;
-    font-size: var(--font-size-7);
-  }
-}
-
-.hero-flip-text {
-  text-decoration: underline;
 }
 
 .container {

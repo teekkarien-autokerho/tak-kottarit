@@ -33,8 +33,8 @@ onMounted(shuffleTexts);
 
 <template>
   <div>
-    <span class="hero-container">
-      <span class="hero-text">{{ heroText }}&nbsp;</span>
+    <p class="hero-container">
+      <span class="text">{{ heroText }}&nbsp;</span>
       <span
         v-if="flipText !== null"
         key="animated-text"
@@ -47,7 +47,7 @@ onMounted(shuffleTexts);
       >
         {{ flipText }}
       </span>
-    </span>
+    </p>
   </div>
 </template>
 
@@ -56,15 +56,33 @@ onMounted(shuffleTexts);
   display: inline-flex;
   flex-direction: column;
   align-items: baseline;
+  margin: 4px 0;
+
+  font-size: var(--font-size-3);
+
+  @media (min-width: 575px) {
+    font-size: var(--font-size-4);
+    flex-direction: row;
+  }
+  @media (min-width: 768px) {
+    margin: 8px 0;
+    font-size: var(--font-size-5);
+  }
+  @media (min-width: 1024px) {
+    font-size: var(--font-size-5);
+  }
+
 
   @media (min-width: 575px) {
     flex-direction: row;
   }
 }
 
-.hero-text {
-  white-space: nowrap;
+
+.text {
   display: inline;
+  margin: 4px 0;
+  white-space: nowrap;
 }
 
 .hero-flip-text {

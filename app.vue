@@ -16,13 +16,13 @@ export default {
     </main>
     <footer class="footer">
       <div class="footer-links">
-        <a class="footer-text" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
+        <a class="footer-link" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
       </div>
       <div class="footer-links">
-        <a class="footer-text" href="http://old.teekkarienautokerho.fi/varauskalenteri/">Varauskalenteri</a>
+        <a class="footer-link" href="http://old.teekkarienautokerho.fi/varauskalenteri/">Varauskalenteri</a>
       </div>
       <div class="footer-links">
-        <a class="footer-text" href="https://www.instagram.com/teekkarienautokerho/">
+        <a class="footer-link" href="https://www.instagram.com/teekkarienautokerho/">
           <img class="header-logo"  height="25" src="/instagram_logo.svg" alt="Teekkarien Autokerho" />
         </a>
       </div>
@@ -83,6 +83,9 @@ export default {
   --black-background: #131212;
   --topnav-background: #111111;
 
+  --primary-red: #ed1e24;
+  --light-red: #f14b50;
+
 
 
   --max-width-0: 320px;
@@ -108,7 +111,7 @@ button {
   padding: 8px 16px;
   border-radius: 4px;
   border-width: 0;
-  background-color: #ed1e24;
+  background-color: var(--primary-red);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   color: #e9e5e5;
   font-family: var(--font-family-header);
@@ -169,10 +172,10 @@ button:hover {
 }
 
 .hero-text-red {
-  color: #ed1e24;
+  color: var(--primary-red);
 }
 .hero-text-white {
-  color: #ffffff;
+  color: var(--white-text);
 }
 </style>
 
@@ -192,14 +195,20 @@ main {
   background-color: var(--footer-background);
 }
 
-.footer-text {
+.footer-link {
   font-size: var(--font-size-1);
   line-height: var(--line-height-1);
   display: flex;
   align-items: center;
   gap: 2px;
-  color:#ed1e24;
+  color: var(--primary-red);
   text-decoration: none;
+}
+
+.footer-link:hover {
+  color: var(--light-red);
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .footer-links {
