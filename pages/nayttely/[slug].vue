@@ -18,8 +18,8 @@ if (!project.value) {
 
 
 useSeoMeta({
-  title: project.value.title ? `${project.value.title} - projekti - Teekkarien Autokerho` : undefined,
-  ogTitle: project.value.title ? `${project.value.title} - projekti - Teekkarien Autokerho` : undefined,
+  title: project.value.title ? `${project.value.title} projekti - Teekkarien Autokerho` : undefined,
+  ogTitle: project.value.title ? `${project.value.title} projekti - Teekkarien Autokerho` : undefined,
   ogImage: project.value.heroImage ? `${urlFor(project.value.heroImage).width(1200).url()}`: undefined,
   ogLocale: route.params.slug == pages.en.slug ? "en_US" : "fi_FI",
   twitterCard: 'summary_large_image',
