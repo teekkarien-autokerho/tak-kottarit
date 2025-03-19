@@ -88,7 +88,7 @@ const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liit
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #e9e5e5;
+  background-color: var(--white-background);
   color: #000000;
 }
 

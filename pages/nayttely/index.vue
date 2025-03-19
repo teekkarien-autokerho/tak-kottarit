@@ -51,12 +51,12 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 .content {
   display: flex;
   flex-direction: column;
-  background-color: #0e0d0d;   
-  color: #ced2d9;   
+  background-color: var(--black-background);
+  color: var(--white-text);
 }
 
 .title {
-  color: white;
+  color: var(--white-text);
   margin: 0;
   font-size: var(--font-size-7);
   font-family: var(--font-family-header);
@@ -83,13 +83,13 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
   display: flex;
   flex-direction: column;
   gap: 16px;
-  color: #ced2d9;
+  color: var(--white-text);
 }
 
 .list-title {
   font-size: var(--font-size-5);
-  margin: 0;
-  color: white;
+  margin: 8px 0;
+  color: var(--white-text);
 
   @media (min-width: 575px) {
     font-size: var(--font-size-6);
@@ -99,24 +99,22 @@ const { data: projects } = await useSanityQuery<ProjectCar[]>(groq`*[_type == "p
 .card {
   display: flex;
   flex-direction: column;
-  padding: 8px 0;
+  padding: 0;
   gap: 8px;
   border-radius: 8px;
   text-decoration: none;
-  color: #ced2d9;
-  
+  color: var(--white-text);  
 
   @media (min-width: 768px) {
     flex-direction: row;
-    padding: 0;
     border-radius: 16px;
   }
 
   &:hover {
     transform: scale(1.01);
     filter: brightness(105%);
-    box-shadow: 0 0 8px 2px #262626;
-    background-color: #262626;
+    box-shadow: 0 0 8px 2px #141313;
+    background-color: #141313;
     transition: transform 0.1s ease, filter 0.1s ease, background-color 0.1s ease;
   }
 }

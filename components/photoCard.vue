@@ -84,8 +84,7 @@
   border: none;
   font-size: 32px;
   font-weight: bold;
-  color: white;
-  cursor: pointer;
+  color: var(--white-text);  cursor: pointer;
 }
 
 .close-button:hover {

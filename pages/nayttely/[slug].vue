@@ -79,22 +79,22 @@ if (!project.value) {
 .content {
   display: flex;
   flex-direction: column;
-  background-color: #0e0d0d;   
-  color: #ced2d9;
+  background-color: var(--black-background);
+  color: var(--white-text);
 }
 
 .container {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: #ced2d9;
+  color: var(--white-text);
 }
 .hero-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 32px;
-  color: white;
+  color: var(--white-text);
 }
 .hero-content {
   display: flex;
@@ -130,7 +130,7 @@ if (!project.value) {
 
 .hero-title {
   margin: 0 0 16px;
-  color: white;
+  color: var(--white-text);
   font-size: var(--font-size-7);
   font-family: var(--font-family-header);
 

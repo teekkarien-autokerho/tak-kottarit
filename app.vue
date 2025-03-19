@@ -74,19 +74,23 @@ export default {
   --line-height-11: 96px;
   --line-height-12: 128px;
 
-  --white: #fff;
-  --black: #101112;
-  --gray-200: #ced2d9;  
-  --gray-600: #6e7683;
-  --blue-600: #1e61cd;
-  --magenta-100: #f9d7eb;
+  --white-text: #ced2d9;
+  --black-text: #101112;
+
+  --white-background: #e9e5e5;
+  --grey-background: #232323;
+  --footer-background: #282828;
+  --black-background: #131212;
+  --topnav-background: #111111;
+
+
 
   --max-width-0: 320px;
   --max-width-1: 600px;
   --max-width-2: 1024px;
 
-  background-color: #e9e5e5;
-  color: #000000;
+  background-color: var(--white-background);
+  color: var(--black-text);
 }
 
 
@@ -175,7 +179,7 @@ button:hover {
 <style scoped>
 main {
   padding-top: 69px;
-  background-color: #111111;
+  background-color: var(--black-background);
 }
 
 .footer {
@@ -185,7 +189,7 @@ main {
   justify-content: center;
   gap: 16px;
   padding: var(--space-5) var(--space-3);
-  background-color: #232323;
+  background-color: var(--footer-background);
 }
 
 .footer-text {

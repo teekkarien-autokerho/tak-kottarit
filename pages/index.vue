@@ -16,9 +16,10 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
       'hero-text-white': frontPage.heroTextColor === 'white',
     }"
     :style="{
-        backgroundImage: frontPage.heroImage
-          ? `url(${urlFor(frontPage.heroImage).width(2000).height(800).url()})`
-        : undefined,
+      backgroundImage: frontPage.heroImage ? `
+        url(${urlFor(frontPage.heroImage).height(800).url()}),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) )
+      ` : undefined,
         backgroundPosition: frontPage.heroPosition || 'center',
       }"
     >
@@ -53,8 +54,8 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #232323;
-  color: #ced2d9;
+  background-color: var(--grey-background);
+  color: var(--white-text);
 }
 
 .hero {
@@ -116,8 +117,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 .container {
   display: flex;
   flex-direction: column;
-  color: #ced2d9;
-}
+  color: var(--white-text);}
 
 .picture {
   width: auto;

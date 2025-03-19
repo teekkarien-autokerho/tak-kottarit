@@ -85,7 +85,7 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   top: 0;
-  background-color: #111111;
+  background-color: var(--topnav-background);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 
   @media (min-width: 575px) {
