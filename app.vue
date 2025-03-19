@@ -19,6 +19,9 @@ export default {
         <a class="footer-text" v-for="page in footerPages" :key="page.slug" :href="page.href">{{ page.title }}</a>
       </div>
       <div class="footer-links">
+        <a class="footer-text" href="http://old.teekkarienautokerho.fi/varauskalenteri/">Varauskalenteri</a>
+      </div>
+      <div class="footer-links">
         <a class="footer-text" href="https://www.instagram.com/teekkarienautokerho/">
           <img class="header-logo"  height="25" src="/instagram_logo.svg" alt="Teekkarien Autokerho" />
         </a>
@@ -192,6 +195,7 @@ main {
   align-items: center;
   gap: 2px;
   color:#ed1e24;
+  text-decoration: none;
 }
 
 .footer-links {

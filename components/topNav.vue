@@ -41,7 +41,7 @@ onUnmounted(() => {
 <template>
   <header class="header">
       <div class="header-content">
-        <a class="header-link" href="/">
+        <a class="header-link header-link-logo" href="/">
           <img class="header-logo" height="40" src="/tak_logo.svg" alt="Teekkarien Autokerho" />
         </a>
         <a class="header-name" href="/">Teekkarien Autokerho</a>
@@ -122,7 +122,7 @@ onUnmounted(() => {
 }
 
 .header-name {
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-5);
   font-family: var(--font-family-header);
   font-weight: 800;
   color: #ed1e24;
@@ -160,6 +160,14 @@ onUnmounted(() => {
   text-wrap: nowrap; 
 }
 
+.header-link-logo {
+  display: none;
+
+  @media (min-width: 440px) {
+   display: flex;
+  }
+}
+
 .header-link:hover {
   color: #f14b50;
   cursor: pointer;
@@ -182,7 +190,11 @@ onUnmounted(() => {
   border: none;
   color: #ed1e24;
   cursor: pointer;
+  box-shadow: none;
 
+  @media (min-width: 575px) {
+    padding: 8px 16px;
+  }
   @media (min-width: 900px) {
     display: none;
   }

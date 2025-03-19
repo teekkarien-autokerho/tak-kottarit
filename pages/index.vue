@@ -6,8 +6,6 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
 
 </script>
 
-
-
 <template>
   <div class="content">
     <section 
