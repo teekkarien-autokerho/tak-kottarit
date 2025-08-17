@@ -27,9 +27,14 @@ export interface Page {
 }
 
 export interface FrontPage extends Omit<Page, "topics"> {  
-  HeroFlipText?: string[];
+  heroFlipText?: string[];
+  heroImageMobile?: ImageAsset;
   picture?: ImageAsset
+  newsPosts: {
+    _ref: string;
+  }[]
 }
+
 
 export interface ProjectCarListPage {
   title?: string;
@@ -61,4 +66,28 @@ export interface ProjectCar {
   engine?: string;
   body: PortableTextBlock[];
   photos: ImageWithText[];
+}
+
+export interface NewsPostLink {
+  url?: string;
+  page?: {
+    _id: string;
+    slug: {
+      current: string;
+    }
+  };
+  text?: string;
+}
+
+export interface NewsPost {
+  _id: string;
+  _type: "document";
+  _createdAt: string;
+  title?: string;
+  slug: {
+    current: string
+  };
+  body: PortableTextBlock[];
+  image: ImageAsset;
+  link?: NewsPostLink;
 }

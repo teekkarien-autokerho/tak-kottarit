@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type FrontPage } from '../types'
+import { type FrontPage, type NewsPost } from '../types'
 
 const query = groq`*[_type == "frontPage"][0]`
 const { data: frontPage } = await useSanityQuery<FrontPage>(query)
@@ -17,7 +17,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
     }"
     :style="{
       backgroundImage: frontPage.heroImage ? `
-        url(${urlFor(frontPage.heroImage).height(3200).url()}),
+        url(${urlFor(frontPage.heroImage).url()}),
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) )
       ` : undefined,
         backgroundPosition: frontPage.heroPosition || 'center',
@@ -26,10 +26,16 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
       <div class="hero-container">
         <h1 class="hero-title">{{ frontPage.title }}</h1>
         <flipText 
-          v-if="frontPage.HeroFlipText && frontPage.heroText"
+          v-if="frontPage.heroFlipText && frontPage.heroText"
           :hero-text="frontPage.heroText"
-          :texts="frontPage.HeroFlipText"
+          :texts="frontPage.heroFlipText"
         />
+      </div>
+    </section>
+    <section class="container" v-if="frontPage !==null">
+      <h2>Uutiset</h2>
+      <div>
+        <NewsPost v-for="newsPost in frontPage.newsPosts" :key="newsPost._ref" :newsPostRef="newsPost._ref" />
       </div>
     </section>
     <section v-if="frontPage !==null" class="container">

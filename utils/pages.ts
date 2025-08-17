@@ -81,6 +81,11 @@ export const headerPages: Partial<{
     slug: string
   };
 }> = {
+  tak75: {
+    title: "TAK 75",
+    href: pages.tak75.href,
+    slug: pages.tak75.slug
+  },
   liity: pages.liity,
   toiminta: pages.toiminta,
   talli: pages.talli,

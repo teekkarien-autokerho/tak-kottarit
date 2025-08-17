@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from "vue";
+import { ref, onMounted } from "vue";
 
 const { heroText, texts } = defineProps<{ heroText: string; texts: string[] }>();
 

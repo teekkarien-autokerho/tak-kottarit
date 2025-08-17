@@ -62,7 +62,7 @@ onUnmounted(() => {
       </div>
       <nav v-if="isMenuOpen" ref="menuRef" class="mobile-menu">
         <a 
-          v-for="page in headerPages" 
+          v-for="page in headerPages"
           class="mobile-menu-item" 
           :class="{ 'header-link-highlight': route.params.slug === page?.slug }"
           :key="page?.slug" 
