@@ -54,7 +54,7 @@ const buttonData = joinButtonContent[route.params.slug as Extract<PageKey, "liit
             linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) ),
             url(${urlFor(page.heroImage).height(800).url()})
           ` : undefined,
-          backgroundPosition: page.heroPosition || 'center',
+          backgroundPosition: page.heroImagePosition || 'center',
         }"
       ></div>
       <div class='hero-container'>

@@ -20,7 +20,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
         url(${urlFor(frontPage.heroImage).url()}),
         linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, 95%, rgba(0, 0, 0, 1) )
       ` : undefined,
-        backgroundPosition: frontPage.heroPosition || 'center',
+        backgroundPosition: frontPage.heroImagePosition || 'center',
       }"
     >
       <div class="hero-container">
@@ -49,7 +49,7 @@ const { data: frontPage } = await useSanityQuery<FrontPage>(query)
         alt="Cover image"
       />
     </section>
-</div>
+  </div>
 </template>
 
 

@@ -18,7 +18,7 @@ export interface Page {
   _createdAt: string;
   title?: string;
   heroImage?: ImageAsset;
-  heroPosition?: "top" | "center" | "bottom";
+  heroImagePosition?: "top" | "center" | "bottom";
   heroText?: string;
   heroTextColor: "black" | "white" | "red";
   HeroFlipText?: string[];

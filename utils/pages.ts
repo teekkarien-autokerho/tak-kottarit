@@ -99,7 +99,7 @@ export const footerPages: Partial<{
   [key in PageKey]: {
     title: string;
     href: string;
-  };
+  } | { title: string; href: string; slug: string; };
 }> = {
   toiminta: pages.toiminta,
   ratapaivat: pages.ratapaivat,
@@ -112,4 +112,9 @@ export const footerPages: Partial<{
   projektiautot: pages.projektiautot,
   yhteistyo: pages.yhteistyo,
   tak75: pages.tak75,
+  kuvat: {
+    title: 'Kuvat',
+    href: 'https://tak.kuvat.fi/kuvat/',
+    slug: 'kuvat'
+  }
 };
